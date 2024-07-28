@@ -3,3 +3,6 @@
 
 # U dont wanna leak ur bot token, right?
 config.json
+
+# Python cache
+*.pyc 
