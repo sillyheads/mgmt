@@ -1,0 +1,5 @@
+# venv
+.env
+
+# U dont wanna leak ur bot token, right?
+config.json
