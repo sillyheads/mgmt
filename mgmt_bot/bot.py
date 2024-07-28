@@ -1,18 +1,30 @@
 from telebot.async_telebot import AsyncTeleBot
 from .config import config
+from . import handlers
 import asyncio
 import logging
 
 log = logging.getLogger(__name__)
-bot = AsyncTeleBot(config["BOT_TOKEN"])
+bot = AsyncTeleBot(config["BOT_TOKEN"], parse_mode="HTML")
 
 
-@bot.message_handler(commands=["start"])
-async def send_welcome(message):
-    text = "Hewwo world! :3"
-    await bot.reply_to(message, text)
+def register_handlers() -> None:
+    log.debug("register_handlers()")
+
+    bot.register_message_handler(
+        handlers.ban_handler,
+        commands=["ban"],
+        pass_bot=True
+    )
+
+    bot.register_message_handler(
+        handlers.start_handler,
+        commands=["start"],
+        pass_bot=True
+    )
 
 
-def bot_main():
-    log.debug(".infinity_polling()")
+def bot_main() -> None:
+    register_handlers()
+    log.debug(".polling()")
     asyncio.run(bot.polling())
