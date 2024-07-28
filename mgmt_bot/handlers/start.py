@@ -12,3 +12,6 @@ async def start_handler(
     text = "Welcome to %s" % myself.first_name
 
     await bot.reply_to(message, text)
+
+
+__all__ = ["start_handler"]

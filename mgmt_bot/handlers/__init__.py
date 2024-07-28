@@ -5,5 +5,11 @@ from .start import start_handler
 # /kick
 from .chat_moderation import (
     ban_handler,
-#    kick_handler
+    kick_handler
 )
+
+__all__ = [
+    "start_handler",
+    "ban_handler",
+    "kick_handler"
+]
