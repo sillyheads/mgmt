@@ -4,5 +4,6 @@
 # U dont wanna leak ur bot token, right?
 config.json
 
-# Python cache
+# Runtime stuff (python cache, logs, etc)
+*.log
 *.pyc 

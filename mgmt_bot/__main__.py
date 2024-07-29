@@ -3,7 +3,8 @@ import logging
 
 logging.basicConfig(
     level=logging.WARNING,
-    filename='app.log'
+    format="%(asctime)s | %(levelname)s in %(name)s - %(message)s",
+#    filename='app.log'
 )
 
 bot_main()
